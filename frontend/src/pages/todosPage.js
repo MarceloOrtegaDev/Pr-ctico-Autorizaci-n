@@ -60,10 +60,17 @@ export const todosPage = () => {
   th4.classList.add("border", "px-4", "py-2");
   th4.textContent = "Owner Id";
 
+  const th5 = document.createElement("th");
+  th5.classList.add("border", "px-4", "py-2");
+  th5.textContent = "Actions";
+
+
+
   tr.appendChild(th1);
   tr.appendChild(th2);
   tr.appendChild(th3);
   tr.appendChild(th4);
+  tr.appendChild(th5)
 
   thead.appendChild(tr);
 
@@ -74,7 +81,9 @@ export const todosPage = () => {
   table.appendChild(tbody);
 
   container.appendChild(btnHome);
-  fetch("http://localhost:4000/todos")
+  fetch("http://localhost:4000/todos", {
+    credentials: "include"
+  })
     .then((response) => response.json())
     .then((data) => {
       data.todos.forEach((todo) => {
@@ -98,10 +107,18 @@ export const todosPage = () => {
         td4.classList.add("border", "px-4", "py-2");
         td4.textContent = todo.owner;
 
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("bg-red-500", "text-white", "px-2", "py-2", "rounded", "mr-2", "mt-4");
+        deleteButton.textContent = "Eliminar";
+        deleteButton.addEventListener("click", () => {
+          tr.remove();
+        });
+
         tr.appendChild(td1);
         tr.appendChild(td2);
         tr.appendChild(td3);
         tr.appendChild(td4);
+        tr.appendChild(deleteButton);
         tbody.appendChild(tr);
       });
     });
