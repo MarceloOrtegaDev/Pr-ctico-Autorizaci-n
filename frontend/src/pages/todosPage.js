@@ -8,19 +8,23 @@ export const todosPage = () => {
     "flex-col",
     "items-center",
     "justify-center",
-    "h-screen",
-    "bg-gray-200"
+    "min-h-screen",
+    "bg-gray-900"
   );
 
   // Botón para volver a Home
   const btnHome = document.createElement("button");
   btnHome.classList.add(
-    "bg-blue-500",
-    "text-white",
+    "bg-gray-300",
+    "text-gray-900",
     "p-2",
     "rounded",
-    "hover:bg-blue-600",
-    "mb-4"
+    "border-2",
+    "hover:bg-green-300",
+    "mb-4",
+    "mt-4",
+    "border-black",
+    "font-bold"
   );
   btnHome.textContent = "Home";
   btnHome.addEventListener("click", () => {
@@ -30,7 +34,7 @@ export const todosPage = () => {
   // Botón para agregar una tarea
   const botonAgregarTarea = document.createElement("button");
   botonAgregarTarea.textContent = "Agregar Tarea";
-  botonAgregarTarea.classList.add("p-2", "rounded", "text-white", "bg-green-500");
+  botonAgregarTarea.classList.add("p-2", "rounded", "text-white", "bg-gray-800", "font-bold", "border-2", "border-gray-700", "hover:bg-gray-700");
   botonAgregarTarea.addEventListener("click", () => {
     modalAgregarTarea.classList.remove("hidden");
   });
@@ -192,7 +196,7 @@ export const todosPage = () => {
 
   // Título de la página
   const title = document.createElement("h1");
-  title.classList.add("text-3xl", "font-bold", "mb-4");
+  title.classList.add("text-3xl", "font-bold", "mb-4", "text-white", "font-bold", "mt-2");
   title.textContent = "Lista de Tareas";
 
   // Crear la tabla
@@ -201,8 +205,13 @@ export const todosPage = () => {
     "w-1/2",
     "bg-white",
     "shadow-md",
+    "rounded-sm",
+    "border-2",
     "h-[700px]",
-    "overflow-y-scroll"
+    "overflow-y-scroll",
+    "border-red-600",
+    "mb-4"
+
   );
 
   // Cabecera de la tabla
@@ -268,7 +277,8 @@ export const todosPage = () => {
           "px-4",
           "py-2",
           "rounded",
-          "hover:bg-red-600"
+          "hover:bg-red-600",
+          "mr-2"
         );
         botonEliminar.textContent = "Eliminar";
         botonEliminar.addEventListener("click", () => {
@@ -319,7 +329,7 @@ export const todosPage = () => {
         });
 
         const tdAcciones = document.createElement("td");
-        tdAcciones.classList.add("border", "px-4", "py-2");
+        tdAcciones.classList.add("border", "px-4", "py-2", "h-auto");
         tdAcciones.appendChild(botonEliminar);
         tdAcciones.appendChild(botonEditar);
 

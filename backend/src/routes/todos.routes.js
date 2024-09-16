@@ -7,7 +7,7 @@ const todosRouter = Router();
 todosRouter.get("/", validarJwt, getAllTodosCtrl);
 todosRouter.get("/:id", validarJwt, tareasXid)
 todosRouter.delete("/:id", validarJwt, borrarTodos)
-todosRouter.put("/:id", editarTarea)
+todosRouter.put("/:id", validarJwt, editarTarea)
 todosRouter.post("/", validarJwt, postTodos);
 
 export { todosRouter };

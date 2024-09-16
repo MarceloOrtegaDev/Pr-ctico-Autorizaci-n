@@ -55,13 +55,13 @@ export const editarTarea = (req, res) => {
 
 export const postTodos = (req, res) => {
   const { title, completed } = req.body;
-  const isCompleteValue = completed === true || completed === 'true' ? 1 : 0;
   const newTodo = {
     id: database.todos.length + 1, // Asumiendo que el ID es secuencial
     title,
-    isCompleteValue,
+    completed,
     owner: req.user.id // Asumiendo que tienes la ID del usuario desde el JWT
   };
+
 
   database.todos.push(newTodo);
   res.status(201).json({ todo: newTodo });
